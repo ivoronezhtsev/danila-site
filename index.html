@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Данила Сулин | Скульптор</title>
+    <!-- Подключаем Tailwind через CDN -->
+    <link href="./dist/output.css" rel="stylesheet">
+    <style>
+        /* Добавим плавность переходов для ссылок */
+        a { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+    <!-- ШАПКА -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <!-- Лого / Заголовок -->
+            <h1 class="text-xl font-light tracking-[0.2em] uppercase">
+                Данила Сулин
+            </h1>
+            
+            <!-- Меню -->
+            <nav class="hidden md:flex gap-10 text-[11px] uppercase tracking-widest font-medium">
+                <a href="#" class="hover:text-gray-400">Биография</a>
+                <a href="#" class="hover:text-gray-400">Скульптура</a>
+                <a href="#" class="hover:text-gray-400">Контакты</a>
+            </nav>
+
+            <!-- Бургер для мобилок (просто иконка) -->
+            <div class="md:hidden">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16""")/>></svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- ЦЕНТРАЛЬНЫЙ БЛОК (СЛАЙДШОУ) -->
+    <main class="h-[calc(100vh-5rem)] w-full flex items-center justify-center p-6 lg:p-12">
+        <div class="relative w-full h-full max-w-6xl group">
+            
+            <!-- Контейнер для фото (заглушка) -->
+            <div class="w-full h-full bg-gray-50 flex items-center justify-center overflow-hidden rounded-sm border border-gray-100">
+                <!-- Здесь будет ваша картинка -->
+                <img src="https://unsplash.com" 
+                     alt="Скульптура" 
+                     class="w-full h-full object-contain p-4 lg:p-10 grayscale hover:grayscale-0 transition-all duration-700">
+            </div>
+
+            <!-- Стрелки управления (появляются при наведении) -->
+            <button class="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity p-2 text-gray-400 hover:text-black">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1" d="M15 19l-7-7 7-7""")/>></svg>
+            </button>
+            <button class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity p-2 text-gray-400 hover:text-black">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1" d="M9 5l7 7-7 7""")/>></svg>
+            </button>
+
+            <!-- Подпись к работе -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
+                <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400">Название работы, 2024</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
