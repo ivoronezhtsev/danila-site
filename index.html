@@ -1,66 +1,273 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Данила Сулин | Скульптор</title>
-    <!-- Подключаем Tailwind через CDN -->
     <link href="./dist/output.css" rel="stylesheet">
     <style>
         /* Добавим плавность переходов для ссылок */
-        a { transition: all 0.3s ease; }
+        a {
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
-<body class="bg-white text-slate-900 antialiased">
+
+<body class="bg-black text-white antialiased">
 
     <!-- ШАПКА -->
-    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <header class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
         <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
             <!-- Лого / Заголовок -->
             <h1 class="text-xl font-light tracking-[0.2em] uppercase">
                 Данила Сулин
             </h1>
-            
+
             <!-- Меню -->
             <nav class="hidden md:flex gap-10 text-[11px] uppercase tracking-widest font-medium">
-                <a href="#" class="hover:text-gray-400">Биография</a>
-                <a href="#" class="hover:text-gray-400">Скульптура</a>
-                <a href="#" class="hover:text-gray-400">Контакты</a>
+                <button onclick="toggleBio()"
+                    class="text-sm font-medium hover:text-gray-400 transition uppercase tracking-widest">
+                    Биография
+                </button>
+                <a href="#sculptures"
+                    class="text-sm font-medium hover:text-gray-400 transition uppercase tracking-widest">
+                    Скульптура
+                </a>
+                <button onclick="toggleContacts()"
+                    class="text-sm font-medium hover:text-gray-400 transition uppercase tracking-widest">
+                    Контакты
+                </button>
             </nav>
 
             <!-- Бургер для мобилок (просто иконка) -->
             <div class="md:hidden">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16""")/>></svg>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 8h16M4 16h16""" ) />>
+                </svg>
             </div>
         </div>
     </header>
 
-    <!-- ЦЕНТРАЛЬНЫЙ БЛОК (СЛАЙДШОУ) -->
-    <main class="h-[calc(100vh-5rem)] w-full flex items-center justify-center p-6 lg:p-12">
-        <div class="relative w-full h-full max-w-6xl group">
-            
-            <!-- Контейнер для фото (заглушка) -->
-            <div class="w-full h-full bg-gray-50 flex items-center justify-center overflow-hidden rounded-sm border border-gray-100">
-                <!-- Здесь будет ваша картинка -->
-                <img src="https://unsplash.com" 
-                     alt="Скульптура" 
-                     class="w-full h-full object-contain p-4 lg:p-10 grayscale hover:grayscale-0 transition-all duration-700">
+    <main class="h-[calc(100vh-5rem)] w-full flex items-center justify-center p-6 lg:p-12 bg-black">
+        <div class="relative w-full h-full max-w-6xl overflow-hidden group">
+
+            <!-- Контейнер для слайдов -->
+            <div id="slider" class="relative w-full h-full flex transition-transform duration-700 ease-in-out">
+                <!-- Слайд 1 -->
+                <div class="min-w-full h-full flex items-center justify-center flex-shrink-0">
+                    <img src="img1.jpg" class="w-full h-full object-contain" alt="Скульптура 1">
+                </div>
+                <!-- Слайд 2 -->
+                <div class="min-w-full h-full flex items-center justify-center flex-shrink-0">
+                    <img src="img2.jpg" class="w-full h-full object-contain" alt="Скульптура 2">
+                </div>
+                <!-- Слайд 3 -->
+                <div class="min-w-full h-full flex items-center justify-center flex-shrink-0">
+                    <img src="img3.jpg" class="w-full h-full object-contain" alt="Скульптура 3">
+                </div>
             </div>
 
-            <!-- Стрелки управления (появляются при наведении) -->
-            <button class="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity p-2 text-gray-400 hover:text-black">
-                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1" d="M15 19l-7-7 7-7""")/>></svg>
+            <!-- Кнопки управления -->
+            <button onclick="prevSlide()"
+                class="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-400 hover:text-black transition-opacity opacity-0 group-hover:opacity-100">
+                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-width="1" d="M15 19l-7-7 7-7""" ) />>
+                </svg>
             </button>
-            <button class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity p-2 text-gray-400 hover:text-black">
-                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="1" d="M9 5l7 7-7 7""")/>></svg>
+            <button onclick="nextSlide()"
+                class="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-400 hover:text-black transition-opacity opacity-0 group-hover:opacity-100">
+                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-width="1" d="M9 5l7 7-7 7""" ) />>
+                </svg>
             </button>
 
-            <!-- Подпись к работе -->
-            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
-                <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400">Название работы, 2024</p>
-            </div>
         </div>
     </main>
 
+
+    <!-- Окно Биографии -->
+    <div id="bio-overlay"
+        class="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center transition-all duration-500 opacity-0 pointer-events-none overflow-y-auto">
+        <!-- Кнопка закрыть -->
+        <button onclick="toggleBio()"
+            class="absolute top-10 right-10 text-white hover:rotate-90 transition-transform duration-300">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M6 18L18 6M6 6l12 12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round""" ) />>
+            </svg>
+        </button>
+
+
+        <!-- Контент -->
+        <div class="max-w-2xl px-6 py-20 text-white space-y-12">
+            <h2 class="text-3xl font-light uppercase tracking-[0.3em] text-center">Биография</h2>
+
+            <div class="space-y-6 text-sm md:text-base font-light tracking-wide leading-relaxed text-gray-300">
+                <p>
+                    Данила Сулин родился в творческой атмосфере, предопределившей его жизненный путь. Воспитание в семье
+                    скульптора и учителя позволило ему с детства совмещать академическую дисциплину с глубоким чувством
+                    формы и материала.
+                </p>
+                <p>
+                    От отца он унаследовал уважение к физическому труду и камню, а от матери — страсть к исследованию
+                    истории искусств и педагогический взгляд на композицию.
+                </p>
+                <p>
+                    Его работы находятся на стыке классических традиций и современного осмысления пространства, где
+                    каждая скульптура — это диалог между природной грубостью материала и тонкой человеческой мыслью.
+                </p>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 text-center">
+                <p class="text-[10px] uppercase tracking-widest text-gray-500">Липецк — Сборник работ 2018-2024</p>
+            </div>
+        </div>
+    </div>
+    <!-- СЕКЦИЯ ГАЛЕРЕИ -->
+    <section id="sculptures" class="max-w-7xl mx-auto px-6 py-24 bg-black">
+        <h2 class="text-center text-white text-2xl font-light uppercase tracking-[0.4em] mb-16">Скульптура</h2>
+
+        <!-- Сетка -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Карточка 1 -->
+            <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal1.jpg')">
+                <img src="img-gal1.jpg" alt="Работа 1"
+                    class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                <p
+                    class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Мрамор, 2023</p>
+            </div>
+            <!-- Карточка 2 -->
+            <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal2.jpg')">
+                <img src="img-gal2.jpg" alt="Работа 2"
+                    class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                <p
+                    class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Бронза, 2024</p>
+            </div>
+            <!-- Карточка 3 -->
+            <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal3.jpg')">
+                <img src="img-gal3.jpg" alt="Работа 3"
+                    class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                <p
+                    class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Гранит, 2022</p>
+            </div>
+        </div>
+    </section>
+    <!-- Окно контактов -->
+    <div id="contact-overlay"
+        class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center transition-all duration-500 opacity-0 pointer-events-none">
+        <!-- Кнопка закрыть -->
+        <button onclick="toggleContacts()"
+            class="absolute top-10 right-10 text-white hover:rotate-90 transition-transform duration-300">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M6 18L18 6M6 6l12 12""" ) />>
+            </svg>
+        </button>
+
+        <!-- Контент -->
+        <div class="text-center text-white space-y-8">
+            <h2 class="text-3xl font-light uppercase tracking-[0.3em]">Контакты</h2>
+            <div class="space-y-4 text-lg font-light tracking-wide">
+                <p><a href="mailto:mail@example.com" class="hover:text-gray-400">mail@danilasulin.ru</a></p>
+                <p><a href="tel:+70000000000" class="hover:text-gray-400">+7 (920) 504-68-69</a></p>
+                <p class="text-gray-500 pt-4">Липецк, Советская, 73</p>
+            </div>
+            <!-- Соцсети -->
+            <div class="flex justify-center gap-6 pt-6">
+                <a href="#" class="uppercase text-[10px] tracking-widest hover:text-gray-400">Telegram</a>
+                <a href="#" class="uppercase text-[10px] tracking-widest hover:text-gray-400">WhatsApp</a>
+            </div>
+        </div>
+    </div>
+    <!-- ЭТОТ БЛОК ОБЯЗАТЕЛЕН ДЛЯ РАБОТЫ УВЕЛИЧЕНИЯ -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center p-4 cursor-pointer"
+        onclick="closeLightbox()">
+        <button
+            class="absolute top-10 right-10 text-white text-4xl font-light hover:scale-110 transition-transform">&times;</button>
+        <img id="lightbox-img" src=""
+            class="max-w-full max-h-full object-contain shadow-2xl transition-transform duration-300">
+    </div>
+    <script>
+        const slider = document.getElementById('slider');
+        const prevBtn = document.querySelector('button[onclick="prevSlide()"]');
+        const nextBtn = document.querySelector('button[onclick="nextSlide()"]');
+
+        let currentIndex = 0;
+        const slides = slider.children; // Считаем реальное кол-во картинок
+        const totalSlides = slides.length;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        // Заменяем onclick в HTML на слушатели в JS
+        window.nextSlide = function () {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlider();
+        }
+
+        window.prevSlide = function () {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        // Автоматическая смена
+        let autoPlay = setInterval(nextSlide, 5000);
+
+        // Остановка автоплея при наведении мышкой
+        slider.parentElement.addEventListener('mouseenter', () => clearInterval(autoPlay));
+        slider.parentElement.addEventListener('mouseleave', () => autoPlay = setInterval(nextSlide, 2000));
+
+        function toggleContacts() {
+            const overlay = document.getElementById('contact-overlay');
+            // Переключаем видимость
+            overlay.classList.toggle('opacity-0');
+            overlay.classList.toggle('pointer-events-none');
+
+            // Блокируем скролл основной страницы, когда открыто окно
+            if (!overlay.classList.contains('opacity-0')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+        function toggleBio() {
+            const overlay = document.getElementById('bio-overlay');
+            overlay.classList.toggle('opacity-0');
+            overlay.classList.toggle('pointer-events-none');
+
+            // Блокировка скролла
+            if (!overlay.classList.contains('opacity-0')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+        window.openLightbox = function (src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+
+            if (lightbox && img) {
+                img.src = src;
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        window.closeLightbox = function () {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox) {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        };
+    </script>
+
+    </script>
 </body>
+
 </html>
