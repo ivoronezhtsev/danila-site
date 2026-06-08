@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сулин Андрей Анатольевич | Скульптор</title>
+    <link href="./dist/output.css" rel="stylesheet">
+    <style>
+        /* Добавим плавность переходов для ссылок */
+        a {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-dark-red text-white antialiased">
+
+    <header class="sticky top-0 z-50 bg-dark-red/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-light tracking-[0.2em] uppercase hover:opacity-70 transition">
+                Сулин Андрей Анатольевич
+            </a>
+
+            <nav class="hidden md:flex gap-10 text-[11px] uppercase tracking-widest font-medium items-center">
+                <button onclick="toggleBio()" class="hover:text-gray-400 transition uppercase tracking-widest">
+                    Биография
+                </button>
+
+                <a href="gallery.html" class="hover:text-gray-400 transition">
+                    Монументальная скульптура
+                </a>
+
+                <button onclick="toggleContacts()" class="hover:text-gray-400 transition uppercase tracking-widest">
+                    Контакты
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="h-[calc(100vh-5rem)] w-full flex items-center justify-center p-6 lg:p-12 bg-dark-red">
+        <div class="relative w-full h-full max-w-6xl overflow-hidden group">
+
+            <div id="slider" class="relative w-full h-full flex flex-nowrap transition-transform duration-700 ease-in-out will-change-transform">
+                <!-- Слайд 1 -->
+                <div class="min-w-full h-full flex items-center justify-center flex-shrink-0">
+                    <img src="slide-1.jpg" class=" class="w-full h-full object-contain image-render-quality backface-hidden" alt="Скульптура 1">
+                </div>
+                <!-- Слайд 2 -->
+                <div class="min-w-full h-full flex items-center justify-center flex-shrink-0">
+                    <img src="slide-2.jpg" class=" class="w-full h-full object-contain image-render-quality backface-hidden" alt="Скульптура 2">
+                </div>
+                <!-- Слайд 3 -->
+                <div class="min-w-full h-full flex items-center justify-center flex-shrink-0">
+                    <img src="slide-3.jpg" class=" class="w-full h-full object-contain image-render-quality backface-hidden" alt="Скульптура 3">
+                </div>
+                <!-- Слайд 4 -->
+                <div class="min-w-full h-full flex items-center justify-center flex-shrink-0">
+                    <img src="slide-4.jpg" class=" class="w-full h-full object-contain image-render-quality backface-hidden" alt="Скульптура 4">
+                </div>
+                <!-- Слайд 5 -->
+                <div class="min-w-full h-full flex items-center justify-center flex-shrink-0">
+                    <img src="slide-5.jpg" class=" class="w-full h-full object-contain image-render-quality backface-hidden" alt="Скульптура 5">
+                </div>
+                <!-- Слайд 6 -->
+                <div class="min-w-full h-full flex items-center justify-center flex-shrink-0">
+                    <img src="slide-6.jpg" class=" class="w-full h-full object-contain image-render-quality backface-hidden" alt="Скульптура 6">
+                </div>
+            </div>
+
+            <!-- Кнопка Назад -->
+            <button onclick="prevSlide()"
+                class="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-400 hover:text-white transition-opacity opacity-0 group-hover:opacity-100">
+                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-width="1" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+
+            <!-- Кнопка Вперед -->
+            <button onclick="nextSlide()"
+                class="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-gray-400 hover:text-white transition-opacity opacity-0 group-hover:opacity-100">
+                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-width="1" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+
+        </div>
+    </main>
+    </div>
+    <!-- Окно биографии -->
+    <div id="bio-overlay" onclick="toggleBio()"
+        class="fixed inset-0 flex items-center justify-center transition-all duration-500 opacity-0 pointer-events-none cursor-pointer"
+        style="background-color: #130404 !important; z-index: 9999;">
+
+        <div class="max-w-2xl text-center text-white space-y-8 px-6 cursor-default" onclick="event.stopPropagation()">
+            <h2 class="text-3xl font-light uppercase tracking-[0.3em]">Биография</h2>
+            <div class="space-y-6 text-sm md:text-base font-light tracking-wide leading-relaxed text-gray-300">
+                <p>Сулин Андрей Анатольевич - художник, скульптр. Родился 14 июня 1960 года в городе Липецк. В 1984 году окончил Саратовское художественное училище. С 2000 года - член Союза художников России. В 1990-х мастер отдаёт предпочтение графике, станковой скульптуре малой формы, а с начала 2000-х годов особое место в творчестве начинает занимать монументальная скульптура. Круг сюжетов, наиболее характерных для Андрея Сулина, - жанровая композиция, историческая тема. Особое внимание скульптор в своих работах уделяет психологическому состоянию героев.</p>
+                <p>Участник всероссийских, региональных и областных выставок. Произведения хранятся в Липецком областном краеведческом музее, в частных собраниях России, Франции, странах СНГ. Монументальные памятники скульптора установлены в Липецке, в районах Липецкой области, Туле, а также в других городах России.</p>
+            </div>
+            <button onclick="toggleBio()"
+                class="mt-8 uppercase text-[10px] tracking-[0.3em] text-gray-400 hover:text-white transition">
+                [ Закрыть ]
+            </button>
+        </div>
+    </div>
+
+    <div id="contact-overlay" onclick="toggleContacts()" style="background-color: #130404;"
+        class="fixed inset-0 z-[100] flex items-center justify-center transition-all duration-500 opacity-0 pointer-events-none cursor-pointer">
+
+        <div class="text-center text-white space-y-8 cursor-default" onclick="event.stopPropagation()">
+            <h2 class="text-3xl font-light uppercase tracking-[0.3em]">Контакты</h2>
+            <div class="space-y-4 text-lg font-light tracking-wide">
+                <p><a href="mailto:mail@danilasulin.ru" class="hover:text-gray-400 transition">nilus1987@yandex.ru</a>
+                </p>
+                <p><a href="tel:+79205046869" class="hover:text-gray-400 transition">+7 (920) 504-68-69</a></p>
+                <p class="text-gray-500 pt-4">Липецк</p>
+            </div>
+            <button onclick="toggleContacts()"
+                class="mt-8 uppercase text-[10px] tracking-[0.3em] text-gray-400 hover:text-white transition">
+                [ Закрыть ]
+            </button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>

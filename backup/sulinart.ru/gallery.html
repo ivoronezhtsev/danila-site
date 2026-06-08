@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сулин Андрей Анатольевич | Скульптор</title>
+    <link href="./dist/output.css?v=1.1" rel="stylesheet">
+    <style>
+        /* ГАРАНТИРОВАННОЕ ПОЗИЦИОНИРОВАНИЕ */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #130404;
+            /* Наш темный цвет */
+            color: white;
+        }
+
+        main {
+            flex: 1 0 auto;
+            /* Заставляет центральную часть растягиваться */
+        }
+
+        footer {
+            flex: 0 0 auto;
+            /* Не дает футеру сжиматься */
+            width: 100%;
+            text-align: center;
+        }
+
+        .bg-dark-red {
+            background-color: #130404;
+        }
+
+        a {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <header class="sticky top-0 z-50 bg-dark-red/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-light tracking-[0.2em] uppercase hover:opacity-70 transition">
+                Сулин Андрей Анатольевич
+            </a>
+
+            <nav class="hidden md:flex gap-10 text-[11px] uppercase tracking-widest font-medium items-center">
+                <!-- Вызывает toggleBio() из scripts.js -->
+                <button onclick="toggleBio()" class="hover:text-gray-400 transition uppercase tracking-widest">
+                    Биография
+                </button>
+
+                <!-- Обычная ссылка на страницу галереи -->
+                <a href="gallery.html" class="hover:text-gray-400 transition">
+                    Монументальная скульптура
+                </a>
+
+                <!-- Вызывает toggleContacts() из scripts.js -->
+                <button onclick="toggleContacts()" class="hover:text-gray-400 transition uppercase tracking-widest">
+                    Контакты
+                </button>
+            </nav>
+
+        </div>
+    </header>
+    <main>
+        <!-- СЕКЦИЯ ГАЛЕРЕИ -->
+        <section id="sculptures" class="w-full py-16">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-center text-white text-2xl font-light uppercase tracking-[0.4em] mb-16">Скульптура</h2>
+
+                <!-- Сетка (Tailwind grid должен работать, если подключен файл) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Карточка 1 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal1.jpg')">
+                        <img src="img-gal1.jpg" alt="Работа 1"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Бюст "Хвостов А.А.". г.Елец. Полимер, 2021</p>
+                    </div>
+                    <!-- Карточка 2 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal2.jpg')">
+                        <img src="img-gal2.jpg" alt="Работа 2"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Памятник "Кириллу и Мефодию". с.Становое. Бетон, 2006</p>
+                    </div>
+                    <!-- Карточка 3 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal3.jpg')">
+                        <img src="img-gal3.jpg" alt="Работа 3"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Пямятник "Князь Долкоруков". с.Долгоруково. Бетон, 2008</p>
+                    </div>
+                    <!-- Карточка 4 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal4.jpg')">
+                        <img src="img-gal4.jpg" alt="Работа 4"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Памятник "Бойцы - Тербунский рубеж". с.Озёрки. Бетон, 2015</p>
+                    </div>
+                    <!-- Карточка 5 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal5.jpg')">
+                        <img src="img-gal5.jpg" alt="Работа 5"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Бюст "Семёнов-Тян-Шанский П.П.". Бетон, 2009</p>
+                    </div>
+                    <!-- Карточка 6 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal6.jpg')">
+                        <img src="img-gal6.jpg" alt="Работа 6"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Памятник "Святой великомученник Пантелеимон". Бронза, 2023</p>
+                    </div>
+                    <!-- Карточка 7 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal7.jpg')">
+                        <img src="img-gal7.jpg" alt="Работа 7"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Пямятник "Фотография на память". г.Липецк. Бронза, 2016</p>
+                    </div>
+                    <!-- Карточка 8 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal8.jpg')">
+                        <img src="img-gal8.jpg" alt="Работа 8"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Памятник "Петру и Меньшикову". г.Чаплыгин. Полимер, 2013</p>
+                    </div>
+                    <!-- Карточка 9 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal9.jpg')">
+                        <img src="img-gal9.jpg" alt="Работа 9"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Бюст "Маршал Баграмян И.Х". с.Озёрки. Полимер, 2018</p>
+                    </div>
+                    <!-- Карточка 10 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal10.jpg')">
+                        <img src="img-gal10.jpg" alt="Работа 10"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Пямятник "Святой Серафим Саровский". г.Липецк. Бронза, 2026</p>
+                    </div>
+                    <!-- Карточка 11 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal11.jpg')">
+                        <img src="img-gal11.jpg" alt="Работа 11"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Пямятник "Пожарным и спасателям". г.Липецк. Полимер, 2025</p>
+                    </div>
+                    <!-- Карточка 12 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal12.jpg')">
+                        <img src="img-gal12.jpg" alt="Работа 12"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Памятник "Проводы". с.Становое. Бетон, 2005</p>
+                    </div>
+                    <!-- Карточка 13 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal13.jpg')">
+                        <img src="img-gal13.jpg" alt="Работа 13"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Бюст "Денисьев Л.А.". с.Сцепное. Полимер, 2020</p>
+                    </div>
+                    <!-- Карточка 14 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal14.jpg')">
+                        <img src="img-gal14.jpg" alt="Работа 14"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Пямятник "Экипажу танка Т34". г.Тула. Полимер, 2020</p>
+                    </div>
+                    <!-- Карточка 15 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal15.jpg')">
+                        <img src="img-gal15.jpg" alt="Работа 15"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Пямятник "Солдат-Победитель". п.Лески. Бетон, 2018</p>
+                    </div>
+                    <!-- Карточка 16 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal16.jpg')">
+                        <img src="img-gal16.jpg" alt="Работа 16"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Пямятник "Боец СВО". с.Тербуны. Полимер, 2025</p>
+                </div>
+                <!-- Карточка 17 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal17.jpg')">
+                        <img src="img-gal17.jpg" alt="Работа 17"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Пямятник "Чемпионы". с.Становое. Бетон, 2005</p>
+                </div>
+                <!-- Карточка 18 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal18.jpg')">
+                        <img src="img-gal18.jpg" alt="Работа 18"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Бюст "Лизюков А.И.". с.Озёрки. Полимер, 2019</p>
+                </div>
+                <!-- Карточка 19 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal19.jpg')">
+                        <img src="img-gal19.jpg" alt="Работа 19"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Барельеф "ВОВ - Тербунский рубеж". с.Озёрки. Полимер, 2016</p>
+                </div>
+                <!-- Карточка 20 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal20.jpg')">
+                        <img src="img-gal20.jpg" alt="Работа 20"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Пямятник "Мать человеческая - Тербунский рубеж". с.Озёрки. Бетон, 2015</p>
+                </div>
+                <!-- Карточка 21 -->
+                    <div class="group cursor-zoom-in overflow-hidden" onclick="openLightbox('img-gal21.jpg')">
+                        <img src="img-gal21.jpg" alt="Работа 21"
+                            class="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+                        <p
+                            class="text-gray-500 text-[10px] uppercase tracking-widest mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Композиция "Пламя". г.Липецк. Полимер, 2025</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Окно биографии с принудительным цветом фона -->
+    <div id="bio-overlay" onclick="toggleBio()" style="background-color: #130404;"
+        class="fixed inset-0 z-[100] flex items-center justify-center transition-all duration-500 opacity-0 pointer-events-none cursor-pointer">
+
+        <div class="max-w-2xl text-center text-white space-y-8 px-6 cursor-default" onclick="event.stopPropagation()">
+            <h2 class="text-3xl font-light uppercase tracking-[0.3em]">Биография</h2>
+            <div class="space-y-6 text-sm md:text-base font-light tracking-wide leading-relaxed text-gray-300">
+                <p>Сулин Андрей Анатольевич - художник, скульптр. Родился 14 июня 1960 года в городе Липецк. В 1984 году окончил Саратовское художественное училище. С 2000 года - член Союза художников России. В 1990-х мастер отдаёт предпочтение графике, станковой скульптуре малой формы, а с начала 2000-х годов особое место в творчестве начинает занимать монументальная скульптура. Круг сюжетов, наиболее характерных для Андрея Сулина, - жанровая композиция, историческая тема. Особое внимание скульптор в своих работах уделяет психологическому состоянию героев.</p>
+                <p>Участник всероссийских, региональных и областных выставок. Произведения хранятся в Липецком областном краеведческом музее, в частных собраниях России, Франции, странах СНГ. Монументальные памятники скульптора установлены в Липецке, в районах Липецкой области, Туле, а также в других городах России.</p>
+            </div>
+            <button onclick="toggleBio()"
+                class="mt-8 uppercase text-[10px] tracking-[0.3em] text-gray-500 hover:text-white transition">
+                [ Закрыть ]
+            </button>
+        </div>
+    </div>
+
+    <div id="contact-overlay" onclick="toggleContacts()" style="background-color: #130404;"
+        class="fixed inset-0 z-[100] flex items-center justify-center transition-all duration-500 opacity-0 pointer-events-none cursor-pointer">
+
+        <div class="text-center text-white space-y-8 cursor-default" onclick="event.stopPropagation()">
+            <h2 class="text-3xl font-light uppercase tracking-[0.3em]">Контакты</h2>
+            <div class="space-y-4 text-lg font-light tracking-wide">
+                <p><a href="mailto:mail@danilasulin.ru" class="hover:text-gray-400 transition">nilus1987@yandex.ru</a>
+                </p>
+                <p><a href="tel:+79205046869" class="hover:text-gray-400 transition">+7 (920) 504-68-69</a></p>
+                <p class="text-gray-500 pt-4">Липецк, Советская, 73</p>
+            </div>
+            <button onclick="toggleContacts()"
+                class="mt-8 uppercase text-[10px] tracking-[0.3em] text-gray-400 hover:text-white transition">
+                [ Закрыть ]
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ЭТОТ БЛОК ОБЯЗАТЕЛЕН ДЛЯ РАБОТЫ УВЕЛИЧЕНИЯ -->
+    <div id="lightbox"
+        class="fixed inset-0 z-[100] bg-dark-red/95 hidden items-center justify-center p-4 cursor-pointer"
+        onclick="closeLightbox()">
+        <button
+            class="absolute top-10 right-10 text-white text-4xl font-light hover:scale-110 transition-transform">&times;</button>
+        <img id="lightbox-img" src=""
+            class="max-w-full max-h-full object-contain shadow-2xl transition-transform duration-300">
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
